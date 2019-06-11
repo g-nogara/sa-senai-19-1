@@ -1,2 +1,2 @@
-# g-nogara.github.io
-Online hosting for testing
+# SAJS
+Espaço para praticar o nosso Git e partilhar nosso código para a situação de aprendizagem 2019.1
