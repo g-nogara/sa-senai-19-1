@@ -1,21 +1,23 @@
-<!DOCTYPE html>
-<meta charset=utf-8>
-
-
-    <title>Venda</title>
-<head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-
-<body style="background-color: slategray">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<link rel="stylesheet" href="cadastro.css">
+		<meta charset="UTF-8">
+		<title>cadastro de clientes</title>
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script type="text/javaScript">
+		
+	</script>
+	</head>
+	<body style="background-color: slategray;">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto" style="margin: auto;">
             <li class="nav-item active">
               <a class="nav-link" href="../index.html">Pagina inicial<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="../Estoque/estoque.html">Estoque</a>
+              <a class="nav-link" href="../Vendas/Vendas.html">Vendas</a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="../Funcionario/func.html">Cadastro de funcionarios</a>
@@ -35,7 +37,7 @@
                 Consultas
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="../Estoque/consultaEstoque.html">Tabela de Produtos</a>
+                  <a class="dropdown-item" href="#">Tabela de Produtos</a>
                   <a class="dropdown-item" href="#">Clientes Cadastrados</a>
                   <a class="dropdown-item" href="#">Vendedores</a>
                 </div>
@@ -43,46 +45,31 @@
               </ul>
         </div>
     </nav>
-
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <h1 class="display-4">Vendas</h1>
-        <hr class="my-4">
-        <p class="lead">Cadastro de nova venda</p>
-      </div>
-    </div>
-    
-    <div class="container">
-      <div class="form-group">
-          <label for="codFuncionario"><b>Código do Funcionário</b></label>
-          <input type="text" class="form-control" placeholder="Insira código do funcionário" id="codFuncionario" required>
-
-          <label for="nomeCliente"><b>Nome do Cliente</b></label>
-          <input type="text" class="form-control" placeholder="Insira nome do cliente (opcional)" id="nomeCliente">
-<br>
-          <button onclick="adicionaCampos()" class="btn btn-sm btn-primary"><b>Adicionar campos de venda</b></button>
-      </div>
-    </div>
-
-    <hr>
-
-    <div class="container" id="containerCampos">
-        <div class="form-group" id="camposVenda">
-        <label for="codigo" id="labelCodigo"><b>Código do Produto</b></label>
-        <input type="text" class="form-control codigo" placeholder="Insira cód. produto da venda" id="codigo" required>
-        <p>
-            <label for="quantidade"><b>Quantidade</b></label>
-            <input type="number" class="form-control quantidade" placeholder="Insira a quantidade vendida" id="quantidade" required>
-        </p>
+        
+        <div class="jumbotron">
+		<h1 class="display-4" style="text-align: center">cadastro de cliente</h1>
         </div>
-    </div>
-    <div class="container">
-        <button onclick="vender()" class="btn btn-primary" id="btnVenda">Gravar Venda</button>
-    </div>
-
-
-        <script type="text/javaScript" src="./scriptVenda.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        
+        <div class="container">
+            <div class="form-group">
+                <label for="nome" id="labelname"><b>Nome do Cliente</b></label>
+                <input type="text" class="form-control" id="nome do cliente"><br>
+                <p>
+                <label for="endereço" id="labelname"><b>Endereço</b></label>
+                <input type="text" class="form-control" id="endereço"><br>
+                <p>
+                <label for="telefone" id="labeltelefone"><b>Telefone</b></label>
+                <input type="tel" class="form-control" id="número do telefone"><br>
+                <p>
+                    <label for="email" id="labelemail"><b>Email</b></label>
+		        <input type="email" class="form-control" id="nome do email"><br>
+                    <p>
+		      <button onclick="salvarCliente()" class="btn btn-primary btn-lg">salvar</button>
+            </div>
+        </div>
+        
+        <script type="text/javaScript" src="./scriptEstoque.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -100,4 +87,5 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-</body>
+	</body>
+</html>

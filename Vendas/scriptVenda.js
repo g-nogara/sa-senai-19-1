@@ -1,30 +1,46 @@
-/*
-let itens = {
-    inserir: function (codig, quantidade, valor, describe) {
-        this.codig = codig;
-        this.quantidade = quantidade;
-        this.valor = valor;
-        this.describe = describe;
-    }
-};
-*/
-let relatorioVendas = {
-    codigo: 0,
-    nomeVendedor: "", //Código vendedor é preferível que nome.
-    quantidadeVendas: 0,
-};
-function Vender(){
-  const codigo = document.getElementById("codigo").value, quantidade = document.getElementById("quantidade").value;
-  let obj = sessionStorage.getItem(codigo);
-  obj = JSON.parse(obj);
-  obj.quantidade -= quantidade;
-  
-
+function Venda(funcionario, cliente, codigo, itens, quantidade, data){
+    this.funcionario = funcionario;
+    this.cliente = null || cliente;
+    this.codigo = codigo;
+    this.itens = itens;
+    this.quantidade = quantidade;
+    this.data = data;
 }
 
-function recuperar(){
-  const obj = sessionStorage.getItem(parseInt(prompt("Informe o código do produto")));
-  console.log(JSON.parse(obj));
-  document.getElementById("exibir").innerHTML+= obj;
+function vender() {
+  let { funcionario, cliente, codigo, quantidade } = getHTMLInputs();
 
+  if (localStorage.length = 0) alert("Sem itens em estoque!");
+  else {
+    var itemString = "", itemQuantidades = "";
+    codigo = Array.from(codigo);
+    for (i = 0; i < codigo.length; i++) {
+      codigo[i] = String(codigo[i].value);
+      codigo[i] = codigo[i].padStart(3, "0");
+      codigo[i] = "e" + codigo[i];
+      //Padrão armazenamento do estoque no localStorage, "e" seguido pelo código com 3 digitos.
+
+      var itemObj = JSON.parse(localStorage.getItem(codigo[i]));
+      itemString += itemObj.describe + ", ";
+    }
+    let novaVenda = new Venda(funcionario, cliente, codigo, itemString, Array.from(quantidade), new Date());
+    novaVenda = JSON.stringify(novaVenda);
+    if (localStorage.getItem("vendas") == null) localStorage.setItem("vendas", [novaVenda])
+    else {
+      tempArrayVendas = localStorage.getItem("vendas");
+      tempArrayVendas.push(novaVenda);
+    }
+  }
+}
+
+function getHTMLInputs() {
+  let funcionario = document.getElementById("codFuncionario").value, cliente = document.getElementById("nomeCliente").value, codigo = document.getElementsByClassName("codigo"), quantidade = document.getElementsByClassName("quantidade");
+  return { funcionario, cliente, codigo, quantidade };
+}
+
+function adicionaCampos() {
+  let formCampos = document.getElementById("camposVenda"),
+  cloneCampos = formCampos.cloneNode(true);
+  containerCampos = document.getElementById("containerCampos");
+  containerCampos.appendChild(cloneCampos);
 }
