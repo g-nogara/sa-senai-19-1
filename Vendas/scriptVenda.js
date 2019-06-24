@@ -14,6 +14,7 @@ function vender() {
   else {
     var itemString = "", itemQuantidades = "";
     codigo = Array.from(codigo);
+    quantidade = Array.from(quantidade);
     for (i = 0; i < codigo.length; i++) {
       codigo[i] = String(codigo[i].value);
       codigo[i] = codigo[i].padStart(3, "0");
@@ -23,7 +24,7 @@ function vender() {
       var itemObj = JSON.parse(localStorage.getItem(codigo[i]));
       itemString += itemObj.describe + ", ";
     }
-    let novaVenda = new Venda(funcionario, cliente, codigo, itemString, Array.from(quantidade), new Date());
+    let novaVenda = new Venda(funcionario, cliente, codigo, itemString, quantidade, new Date());
     novaVenda = JSON.stringify(novaVenda);
     if (localStorage.getItem("vendas") == null) localStorage.setItem("vendas", [novaVenda])
     else {
