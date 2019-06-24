@@ -21,6 +21,8 @@ function vender() {
       codigo[i] = "e" + codigo[i];
       //Padrão armazenamento do estoque no localStorage, "e" seguido pelo código com 3 digitos.
 
+      console.log(quantidade);
+
       var itemObj = JSON.parse(localStorage.getItem(codigo[i]));
       itemString += itemObj.describe + ", ";
     }
