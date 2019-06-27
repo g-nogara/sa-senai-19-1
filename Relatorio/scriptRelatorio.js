@@ -1,4 +1,5 @@
 function insereItens() {
+    let faturamentoTotal = [];
     let table = document.getElementById("tabelaRelatorio");
 
     if (!(localStorage.getItem("vendas"))) alert("Sem vendas para relatar!")
@@ -8,6 +9,12 @@ function insereItens() {
         for (i = 0; i < vendas.length; i++) {
             let { cell0, cell1, cell2, cell3, cell4, cell5 } = elementosTabela();
             insereValoresTabela(vendas[i], cell0, cell1, cell2, cell3, cell4, cell5);
+            let soma = 0;
+
+            faturamentoTotal.forEach(valor => soma += valor)
+            document.getElementById("faturamento").value = soma;
+            document.getElementById("displayFaturamento").classList.remove("invisible");
+
         }
     }
 
@@ -17,15 +24,15 @@ function insereItens() {
         funcionario = "f" + funcionario;
         funcionario = JSON.parse(localStorage.getItem(funcionario));
         cell1.innerHTML = funcionario.codigo;
-        cell2.innerHTML = venda.nome;
+        cell2.innerHTML = venda.cliente;
         cell3.innerHTML = venda.quantidade;
         cell4.innerHTML = venda.total;
         cell5.innerHTML = venda.nfe;
         let data = venda.data;
         data.toString();
         data = data.substring(0,10);
-        console.log(data);
         cell0.innerHTML = data;
+       faturamentoTotal.push(venda.total);
     }
 
     function elementosTabela() {
